@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "JPEngine.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "AFHTTPRequestOperationManager.h"
+#import "JPEngine.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,7 @@
 
     [UIColor yellowColor];
     [UIColor orangeColor];
+    [UIColor magentaColor];
     
     return YES;
 }

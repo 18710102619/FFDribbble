@@ -79,7 +79,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         if (!cell) {
             cell = FFTimeLineCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
         }
-        cell.textLabel().setText("cell ")
+        cell.textLabel().setText("cell")
         return cell
     },
             
