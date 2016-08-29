@@ -13,7 +13,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
     'loadingView',
     'isLoading',
     'shots',
-    'currentPage'
+    'currPage'
 ], {
     
     init: function() {
@@ -26,7 +26,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         
         // 初始化变量
         self.setShots([]);
-        self.currentPage(1);
+        self.setCurrPage(1);
         
         // 设置tableView
         self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
@@ -47,25 +47,26 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         return self;
     },
 
-    _loadShots: function() {
-        self.setIsLoading(1);
-        var per_page=20;
-        var slf=self;
-        FFDataSource.shareInstance().loadPublicShots(self.currentPage(), perPage, function(shots){
-             slf.loadingView().removeFromSuperview();
-             slf.setShots(slf.shots().concat(shots));
-             slf.setCurrentPage(slf.currentPage() + 1);
-             slf.setIsLoading(0);
-             if (shots.length >= perPage) {
-                 slf.tableView().setTableFooterView(DBLoadMoreView.alloc().init());
-             } else {
-                 slf.tableView().setTableFooterView(null);
-             }
-             slf.tableView().reloadData();
-        }, function(){
-         
-        })
-    },
+            _loadShots: function() {
+            self.setIsLoading(1)
+            var perPage = 20;
+            var slf = self;
+            FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots){
+                                                         slf.loadingView().removeFromSuperview();
+                                                         slf.setShots(slf.shots().concat(shots));
+                                                         slf.setCurrPage(slf.currPage() + 1);
+                                                         slf.setIsLoading(0);
+                                                         
+                                                         if (shots.length >= perPage) {
+                                                         slf.tableView().setTableFooterView(DBLoadMoreView.alloc().init());
+                                                         } else {
+                                                         slf.tableView().setTableFooterView(null);
+                                                         }
+                                                         slf.tableView().reloadData();
+                                                         }, function(){
+                                                         //fail
+                                                         })
+            },
             
             
     // UITableViewDataSource

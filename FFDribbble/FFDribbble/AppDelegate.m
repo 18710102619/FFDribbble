@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "JPEngine.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @interface AppDelegate ()
 
