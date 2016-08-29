@@ -7,14 +7,15 @@
 */
 
 include('FFLoadMoreView.js')
+include('FFTimeLineCell.js')
 
-require('UIColor,UITableViewCell,UIActivityIndicatorView')
+require('UIColor,UIActivityIndicatorView')
 
 defineClass('FFTimeLineViewController: UITableViewController', [
     'loadingView',
     'isLoading',
+    'currPage',
     'shots',
-    'currPage'
 ], {
     
     init: function() {
@@ -30,7 +31,6 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         self.setCurrPage(1);
         
         // 设置tableView
-        self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
         self.tableView().setSeparatorStyle(0);
             
         // 设置旋转进度轮
@@ -72,12 +72,12 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
-        return 10;
+        return self.shots().length / 2;
     },
     tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (!cell) {
-            cell = UITableViewCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+            cell = FFTimeLineCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
         }
         cell.textLabel().setText("cell ")
         return cell
@@ -85,7 +85,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             
     // UITableViewDelegate
     tableView_heightForRowAtIndexPath: function(tableView, indexPath) {
-        return 70;
+        return FFTimeLineView_Height+FFTimeLineCell_Gap;
     },
 
 })

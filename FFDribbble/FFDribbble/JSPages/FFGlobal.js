@@ -11,6 +11,10 @@ var global = this;
 global.SCREEN_WIDTH = require('UIScreen').mainScreen().bounds().width;
 global.SCREEN_HEIGHT = require('UIScreen').mainScreen().bounds().height;
 
+global.FFTimeLineCell_Gap = 10
+global.FFTimeLineView_Width = (SCREEN_WIDTH - 10 * 3) / 2
+global.FFTimeLineView_Height = global.FFTimeLineView_Width * 3/4 + 30
+
 global.UIHelper = {
     bottomY: function(view) {
         var f = view.frame();
