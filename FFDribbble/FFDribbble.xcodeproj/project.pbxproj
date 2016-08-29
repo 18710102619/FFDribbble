@@ -12,6 +12,7 @@
 		3604756C1D73F30300D93E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3604756B1D73F30300D93E0A /* Assets.xcassets */; };
 		3604757A1D73F30300D93E0A /* FFDribbbleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 360475791D73F30300D93E0A /* FFDribbbleTests.m */; };
 		360475851D73F30300D93E0A /* FFDribbbleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 360475841D73F30300D93E0A /* FFDribbbleUITests.m */; };
+		3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */ = {isa = PBXBuildFile; fileRef = 3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */; };
 		36657FF51D7425C2000101F8 /* FFDataSource.js in Resources */ = {isa = PBXBuildFile; fileRef = 36657FF41D7425C2000101F8 /* FFDataSource.js */; };
 		368B8A521D74098D00B80926 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 368B8A511D74098D00B80926 /* UIView+Extension.m */; };
 		368B8A561D740C5400B80926 /* FFGlobal.js in Resources */ = {isa = PBXBuildFile; fileRef = 368B8A551D740C5400B80926 /* FFGlobal.js */; };
@@ -54,6 +55,7 @@
 		360475801D73F30300D93E0A /* FFDribbbleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FFDribbbleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		360475841D73F30300D93E0A /* FFDribbbleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFDribbbleUITests.m; sourceTree = "<group>"; };
 		360475861D73F30300D93E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFLoadMoreView.js; sourceTree = "<group>"; };
 		36657FF41D7425C2000101F8 /* FFDataSource.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDataSource.js; sourceTree = "<group>"; };
 		368B8A501D74098D00B80926 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		368B8A511D74098D00B80926 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				368B8A551D740C5400B80926 /* FFGlobal.js */,
 				36657FF41D7425C2000101F8 /* FFDataSource.js */,
 				368B8A571D740CD500B80926 /* FFTimeLineView.js */,
+				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
 				36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */,
 			);
 			path = JSPages;
@@ -304,6 +307,7 @@
 				36A8F7591D7407B4002215B9 /* FFMain.js in Resources */,
 				368B8A561D740C5400B80926 /* FFGlobal.js in Resources */,
 				368B8A581D740CD500B80926 /* FFTimeLineView.js in Resources */,
+				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
 				36657FF51D7425C2000101F8 /* FFDataSource.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

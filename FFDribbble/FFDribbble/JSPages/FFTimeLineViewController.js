@@ -6,6 +6,7 @@
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
+include('FFLoadMoreView.js')
 
 require('UIColor,UITableViewCell,UIActivityIndicatorView')
 
@@ -47,27 +48,27 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         return self;
     },
 
-            _loadShots: function() {
-            self.setIsLoading(1)
-            var perPage = 20;
-            var slf = self;
-            FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots){
-                                                         slf.loadingView().removeFromSuperview();
-                                                         slf.setShots(slf.shots().concat(shots));
-                                                         slf.setCurrPage(slf.currPage() + 1);
-                                                         slf.setIsLoading(0);
-                                                         
-                                                         if (shots.length >= perPage) {
-                                                         slf.tableView().setTableFooterView(DBLoadMoreView.alloc().init());
-                                                         } else {
-                                                         slf.tableView().setTableFooterView(null);
-                                                         }
-                                                         slf.tableView().reloadData();
-                                                         }, function(){
-                                                         //fail
-                                                         })
+    // 加载数据
+    _loadShots: function() {
+        self.setIsLoading(1)
+        var perPage = 20;
+        var slf = self;
+        FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots) {
+                slf.loadingView().removeFromSuperview();
+                slf.setShots(slf.shots().concat(shots));
+                slf.setCurrPage(slf.currPage() + 1);
+                slf.setIsLoading(0);
+                if (shots.length >= perPage) {
+                    slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
+                } else {
+                    slf.tableView().setTableFooterView(null);
+                }
+                slf.tableView().reloadData();
             },
-            
+            function(){
+            }
+        );
+    },
             
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {

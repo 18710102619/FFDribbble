@@ -25,6 +25,9 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     [self initRootViewController];
+
+    [UIColor yellowColor];
+    [UIColor orangeColor];
     
     return YES;
 }
