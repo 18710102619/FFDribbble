@@ -8,6 +8,8 @@
 
 require('UIFont,UIColor,UILabel,UIButton,UIImageView')
 
+var gap=5;
+
 defineClass('FFTimeLineView: UIView', [
     'iconButton',
     'iconImage',
@@ -22,20 +24,21 @@ defineClass('FFTimeLineView: UIView', [
         self.setBackgroundColor(UIColor.whiteColor());
         
         var W=FFTimeLineView_Width - 10;
-        var iconButton = UIButton.alloc().initWithFrame({x: 5, y: 5, width: W, height: W*3/4});
-        iconButton.setBackgroundColor(UIColor.orangeColor());
-        iconButton.addTarget_action_forControlEvents(self, 'iconButtonClicked', 1 <<  6);
+        var iconButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: W, height: W*3/4});
+        //iconButton.setBackgroundColor(UIColor.orangeColor());
+        iconButton.addTarget_action_forControlEvents(self, 'handleTap', 1 <<  6);
         self.addSubview(iconButton);
         self.setIconButton(iconButton);
             
         var Y=iconButton.frame().y+iconButton.frame().height+7;
-        var iconImage = UIImageView.alloc().initWithFrame({x: 5, y: Y, width: 18, height: 18});
-        iconImage.setBackgroundColor(UIColor.orangeColor());
+        var iconImage = UIImageView.alloc().initWithFrame({x: gap, y: Y, width: 18, height: 18});
+        //iconImage.setBackgroundColor(UIColor.orangeColor());
         self.addSubview(iconImage);
         self.setIconImage(iconImage);
-            
-        var titleLabel = UILabel.alloc().initWithFrame({x: 28, y: Y, width:FFTimeLineView_Width-33, height:18});
-        titleLabel.setBackgroundColor(UIColor.orangeColor());
+        
+        var X=gap+18+7;
+        var titleLabel = UILabel.alloc().initWithFrame({x: X, y: Y, width:FFTimeLineView_Width-X-gap, height:18});
+        //titleLabel.setBackgroundColor(UIColor.orangeColor());
         titleLabel.setFont(UIFont.systemFontOfSize(12));
         titleLabel.setTextColor(UIColor.grayColor());
         self.addSubview(titleLabel);
@@ -45,9 +48,10 @@ defineClass('FFTimeLineView: UIView', [
     },
          
     // 点击事件
-    iconButtonClicked: function() {
-        if(self.tapCallBack()) {
-            self.tapCallBack();
+    handleTap: function() {
+        var cb = self.tapCallBack();
+        if (cb) {
+            cb();
         }
     },
             

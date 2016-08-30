@@ -11,7 +11,7 @@ include('FFTimeLineView.js')
 defineClass('FFTimeLineCell: UITableViewCell', [
 'itemView1',
 'itemView2',
-'tapCallback',
+'tapCallBack',
 ], {
    
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
@@ -19,23 +19,45 @@ defineClass('FFTimeLineCell: UITableViewCell', [
         if (self) {
             self.setSelectionStyle(0);
             self.contentView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
-            self._initItemView();
+            
+            var itemView1 = FFTimeLineView.alloc().init();
+            var itemView2 = FFTimeLineView.alloc().init();
+            
+            itemView1.setFrame({x: FFTimeLineCell_Gap, y: FFTimeLineCell_Gap, width: itemView1.frame().width, height: itemView1.frame().height});
+            itemView2.setFrame({x:FFTimeLineCell_Gap*2 + itemView1.frame().width, y: FFTimeLineCell_Gap, width: itemView2.frame().width, height: itemView2.frame().height});
+            
+            self.addSubview(itemView1);
+            self.addSubview(itemView2);
+            
+            self.setItemView1(itemView1);
+            self.setItemView2(itemView2);
         }
         return self;
     },
-            
-    _initItemView: function(){
-        var itemView1 = FFTimeLineView.alloc().init();
-        var itemView2 = FFTimeLineView.alloc().init();
-        
-        itemView1.setFrame({x: FFTimeLineCell_Gap, y: FFTimeLineCell_Gap, width: itemView1.frame().width, height: itemView1.frame().height});
-        itemView2.setFrame({x:FFTimeLineCell_Gap*2 + itemView1.frame().width, y: FFTimeLineCell_Gap, width: itemView2.frame().width, height: itemView2.frame().height});
-        
-        self.setItemView1(itemView1);
-        self.setItemView2(itemView2);
-        
-        self.addSubview(itemView1);
-        self.addSubview(itemView2);
+
+    setModels: function(model1,model2) {
+        if (model1) {
+            self.itemView1().setModel(model1);
+        }
+        if (model2) {
+            self.itemView2().setModel(model2);
+        }
+        self.itemView1().setHidden(!model1);
+        self.itemView2().setHidden(!model2);
+
+        var slf = self
+        self.itemView1().setTapCallBack(function() {
+            var cb = slf.tapCallBack();
+            if (cb) {
+                cb(model1);
+            }
+        });
+        self.itemView2().setTapCallBack(function(){
+            var cb = slf.tapCallBack();
+            if (cb) {
+                cb(model2);
+            }
+        });
     },
             
 })

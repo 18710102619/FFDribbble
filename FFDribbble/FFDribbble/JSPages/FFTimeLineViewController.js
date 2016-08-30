@@ -8,6 +8,7 @@
 
 include('FFLoadMoreView.js')
 include('FFTimeLineCell.js')
+include('FFDetailViewController.js')
 
 require('UIColor,UIActivityIndicatorView')
 
@@ -32,11 +33,12 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         
         // 设置tableView
         self.tableView().setSeparatorStyle(0);
+        self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
             
         // 设置旋转进度轮
         var W=40;
         var loadingView=UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
-        loadingView.setBackgroundColor(UIColor.magentaColor());
+        //loadingView.setBackgroundColor(UIColor.magentaColor());
         loadingView.setFrame({x: (SCREEN_WIDTH-W)/2, y: (SCREEN_HEIGHT-64-W)/2, width: W, height: W});
         loadingView.startAnimating();
         self.view().addSubview(loadingView);
@@ -69,6 +71,22 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             }
         );
     },
+         
+    // 跳转至详情页
+    _handleGotoModel: function(model) {
+        console.log('跳转到详情页...');
+        var detailVC = FFDetailViewController.alloc().initWithModel(model);
+        self.navigationController().pushViewController_animated(detailVC, YES);
+    },
+       
+    // 滑动加载数据
+    scrollViewDidScroll: function(scrollView) {
+        var contentOffset = scrollView.contentOffset();
+        var contentSize = scrollView.contentSize();
+        if (!self.isLoading() && contentOffset.y - contentSize.height > -SCREEN_HEIGHT) {
+            self._loadShots();
+        }
+    },
             
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
@@ -78,8 +96,12 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (!cell) {
             cell = FFTimeLineCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+            var slf=self;
+            cell.setTapCallBack(function(model) {
+                slf._handleGotoModel(model);
+            });
         }
-        cell.textLabel().setText("cell")
+        cell.setModels(self.shots()[indexPath.row()*2], self.shots()[indexPath.row()*2 + 1])
         return cell
     },
             

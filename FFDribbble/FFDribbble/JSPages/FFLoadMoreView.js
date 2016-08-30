@@ -6,31 +6,31 @@
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
-require('UIActivityIndicatorView,UILabel,UIColor')
+require('UIFont,UIColor,UILabel,UIActivityIndicatorView')
 
 defineClass('FFLoadMoreView: UIView', {
             
     init: function() {
         self = self.super().init();
-        self.setBackgroundColor(UIColor.yellowColor());
         self.setFrame({x:0, y:0, width:SCREEN_WIDTH, height: 50});
             
         var X=(SCREEN_WIDTH-130)/2;
         var H=30;
             
         var loadingView = UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
-        loadingView.setBackgroundColor(UIColor.magentaColor());
+        //loadingView.setBackgroundColor(UIColor.magentaColor());
         loadingView.startAnimating();
         loadingView.setFrame({x:X, y: 10, width:H, height: H});
 
-        var loadingLabel=UILabel.alloc().init();
-        loadingLabel.setBackgroundColor(UIColor.magentaColor());
-        loadingLabel.setText('正在加载...');
-        loadingLabel.setFrame({x:X+40, y: 10, width:90, height: H});
-        loadingLabel.setTextColor(UIColor.grayColor());
-
+        var titleLabel=UILabel.alloc().init();
+        //titleLabel.setBackgroundColor(UIColor.magentaColor());
+        titleLabel.setFont(UIFont.systemFontOfSize(14));
+        titleLabel.setFrame({x:X+40, y: 10, width:90, height: H});
+        titleLabel.setTextColor(UIColor.grayColor());
+        titleLabel.setText('正在加载...');
+            
         self.addSubview(loadingView);
-        self.addSubview(loadingLabel);
+        self.addSubview(titleLabel);
 
         return self;
     },

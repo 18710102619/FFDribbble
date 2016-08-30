@@ -21,6 +21,8 @@
 		36A8F7581D7407B4002215B9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8F7541D7407B4002215B9 /* UIColor+Hex.m */; };
 		36A8F7591D7407B4002215B9 /* FFMain.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7561D7407B4002215B9 /* FFMain.js */; };
 		36A8F75A1D7407B4002215B9 /* FFTimeLineViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */; };
+		36E9762B1D7554D00059718A /* FFDetailViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36E9762A1D7554D00059718A /* FFDetailViewController.js */; };
+		36E9762D1D7554E90059718A /* FFDetailView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36E9762C1D7554E90059718A /* FFDetailView.js */; };
 		C6813F73036AF85D74033FAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF67C943C00BD9AB380FB55 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		36A8F7541D7407B4002215B9 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		36A8F7561D7407B4002215B9 /* FFMain.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFMain.js; sourceTree = "<group>"; };
 		36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFTimeLineViewController.js; sourceTree = "<group>"; };
+		36E9762A1D7554D00059718A /* FFDetailViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailViewController.js; sourceTree = "<group>"; };
+		36E9762C1D7554E90059718A /* FFDetailView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailView.js; sourceTree = "<group>"; };
 		DBF67C943C00BD9AB380FB55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,10 +196,12 @@
 				36A8F7561D7407B4002215B9 /* FFMain.js */,
 				368B8A551D740C5400B80926 /* FFGlobal.js */,
 				36657FF41D7425C2000101F8 /* FFDataSource.js */,
+				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
 				368C99F31D7446C700E7EDA3 /* FFTimeLineCell.js */,
 				368B8A571D740CD500B80926 /* FFTimeLineView.js */,
 				36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */,
-				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
+				36E9762C1D7554E90059718A /* FFDetailView.js */,
+				36E9762A1D7554D00059718A /* FFDetailViewController.js */,
 			);
 			path = JSPages;
 			sourceTree = "<group>";
@@ -311,8 +317,10 @@
 				368B8A561D740C5400B80926 /* FFGlobal.js in Resources */,
 				368B8A581D740CD500B80926 /* FFTimeLineView.js in Resources */,
 				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
+				36E9762D1D7554E90059718A /* FFDetailView.js in Resources */,
 				36657FF51D7425C2000101F8 /* FFDataSource.js in Resources */,
 				368C99F41D7446C700E7EDA3 /* FFTimeLineCell.js in Resources */,
+				36E9762B1D7554D00059718A /* FFDetailViewController.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
