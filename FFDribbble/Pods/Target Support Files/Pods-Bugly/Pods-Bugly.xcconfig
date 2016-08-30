@@ -1,0 +1,2 @@
+PODS_BUGLY_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/Bugly"
+PODS_BUGLY_OTHER_LDFLAGS = -l"c++" -l"z" -framework "Bugly" -framework "Security" -framework "SystemConfiguration"

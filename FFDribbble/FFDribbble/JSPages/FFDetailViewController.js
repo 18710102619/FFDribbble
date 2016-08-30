@@ -16,7 +16,11 @@ defineClass('FFDetailViewController: UIViewController', [
     initWithModel: function(model) {
         self = self.super().init();
         if (self) {
-            self.view().setBackgroundColor(UIColor.yellowColor);
+            self.setTitle('详情页');
+            
+            // 设置背景颜色
+            var color = UIColor.colorWithHex(0xFC7274);
+            self.view().setBackgroundColor(color);
         }
         return self;
     },

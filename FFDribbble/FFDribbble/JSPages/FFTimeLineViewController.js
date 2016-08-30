@@ -21,32 +21,33 @@ defineClass('FFTimeLineViewController: UITableViewController', [
     
     init: function() {
         self=self.super().init();
-        self.setTitle('首页');
+        if (self) {
+            self.setTitle('首页');
+                
+            // 设置背景颜色
+            var color = UIColor.colorWithHex(0xFC7274);
+            self.view().setBackgroundColor(color);
             
-        // 设置背景颜色
-        var color = UIColor.colorWithHex(0xFC7274);
-        self.view().setBackgroundColor(color);
-        
-        // 初始化变量
-        self.setShots([]);
-        self.setCurrPage(1);
-        
-        // 设置tableView
-        self.tableView().setSeparatorStyle(0);
-        self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
+            // 初始化变量
+            self.setShots([]);
+            self.setCurrPage(1);
             
-        // 设置旋转进度轮
-        var W=40;
-        var loadingView=UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
-        //loadingView.setBackgroundColor(UIColor.magentaColor());
-        loadingView.setFrame({x: (SCREEN_WIDTH-W)/2, y: (SCREEN_HEIGHT-64-W)/2, width: W, height: W});
-        loadingView.startAnimating();
-        self.view().addSubview(loadingView);
-        self.setLoadingView(loadingView);
-        
-        // 加载数据
-        self._loadShots();
+            // 设置tableView
+            self.tableView().setSeparatorStyle(0);
+            self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
+                
+            // 设置旋转进度轮
+            var W=40;
+            var loadingView=UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
+            //loadingView.setBackgroundColor(UIColor.magentaColor());
+            loadingView.setFrame({x: (SCREEN_WIDTH-W)/2, y: (SCREEN_HEIGHT-64-W)/2, width: W, height: W});
+            loadingView.startAnimating();
+            self.view().addSubview(loadingView);
+            self.setLoadingView(loadingView);
             
+            // 加载数据
+            self._loadShots();
+        }
         return self;
     },
 
@@ -74,7 +75,6 @@ defineClass('FFTimeLineViewController: UITableViewController', [
          
     // 跳转至详情页
     _handleGotoModel: function(model) {
-        console.log('跳转到详情页...');
         var detailVC = FFDetailViewController.alloc().initWithModel(model);
         self.navigationController().pushViewController_animated(detailVC, YES);
     },

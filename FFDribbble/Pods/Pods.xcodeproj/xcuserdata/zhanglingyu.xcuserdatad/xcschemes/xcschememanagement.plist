@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Bugly.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-JSPatch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>93219210AE3F6E6F9B7A7B46</key>
+		<key>141372346EA2648EDC1698FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94CF6CFE2A81E36965297FA9</key>
+		<key>70EF7BAF9E72EAF6CAC2E36F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC88122D1F3259A5FD6BC51E</key>
+		<key>9C7AEC00CA953B196BA7964A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E915F580F57BFEEB0F26C38A</key>
+		<key>B1F1AC03133CD7833BA884A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD9065C70D1DF5E821A1935C</key>
+		<key>C9D9054E4AA8F0543B29C002</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E08B2FB21003718B9E3206CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
