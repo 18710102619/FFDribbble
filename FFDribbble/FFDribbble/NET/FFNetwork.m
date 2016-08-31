@@ -30,14 +30,14 @@
 }
 
 + (void)get:(NSString *)url
-  pageindex:(int)pageindex
-  pagecount:(int)pagecount
+       page:(int)page
+      count:(int)count
     success:(void (^)(id responseObject))success
     failure:(void (^)(id error))failure;
 {
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
-    [params setObject:[NSString stringWithFormat:@"%d",pageindex] forKey:@"page"];
-    [params setObject:[NSString stringWithFormat:@"%d",pagecount] forKey:@"per_page"];
+    [params setObject:[NSString stringWithFormat:@"%d",page] forKey:@"page"];
+    [params setObject:[NSString stringWithFormat:@"%d",count] forKey:@"per_page"];
     [self get:url params:params success:success failure:failure];
 }
 

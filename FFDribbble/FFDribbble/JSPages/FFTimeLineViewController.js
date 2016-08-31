@@ -15,8 +15,8 @@ require('FFNetwork,UIColor,UIActivityIndicatorView')
 defineClass('FFTimeLineViewController: UITableViewController', [
 'loadingView',
 'isLoading',
-'currPage',
-'shots',
+'page',
+'modelArray',
 ], {
     
     init: function() {
@@ -29,8 +29,8 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             self.view().setBackgroundColor(color);
             
             // 初始化变量
-            self.setShots([]);
-            self.setCurrPage(1);
+            self.setModelArray([]);
+            self.setPage(1);
             
             // 设置tableView
             self.tableView().setSeparatorStyle(0);
@@ -46,38 +46,22 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             self.setLoadingView(loadingView);
             
             // 加载数据
-            self._loadShots();
+            self._loadModelArray();
         }
         return self;
     },
 
     // 加载数据
-    _loadShots: function() {
+    _loadModelArray: function() {
         self.setIsLoading(1)
-        var perPage = 20;
+        var count = 20;
         var slf = self;
-//        FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots) {
-//                slf.loadingView().removeFromSuperview();
-//                slf.setShots(slf.shots().concat(shots));
-//                slf.setCurrPage(slf.currPage() + 1);
-//                slf.setIsLoading(0);
-//                if (shots.length >= perPage) {
-//                    slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
-//                } else {
-//                    slf.tableView().setTableFooterView(null);
-//                }
-//                slf.tableView().reloadData();
-//            },
-//            function(){
-//            }
-//        );
-            //require('FFNetwork');
-            FFNetwork.get_pageindex_pagecount_success_failure(kList_URL, 1, 20, block('id', function(responseObject) {
+            FFNetwork.get_page_count_success_failure(URL_List, self.page(), count, block('id', function(responseObject) {
                 slf.loadingView().removeFromSuperview();
-                slf.setShots(slf.shots().concat(responseObject));
-                slf.setCurrPage(slf.currPage() + 1);
+                slf.setModelArray(slf.modelArray().concat(responseObject));
+                slf.setPage(slf.page() + 1);
                 slf.setIsLoading(0);
-                if (responseObject.length >= perPage) {
+                if (responseObject.length >= count) {
                     slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
                 } else {
                     slf.tableView().setTableFooterView(null);
@@ -99,13 +83,13 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         var contentOffset = scrollView.contentOffset();
         var contentSize = scrollView.contentSize();
         if (!self.isLoading() && contentOffset.y - contentSize.height > -SCREEN_HEIGHT) {
-            self._loadShots();
+            self._loadmodelArray();
         }
     },
             
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
-        return self.shots().length / 2;
+        return self.modelArray().length / 2;
     },
     tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
@@ -116,7 +100,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
                 slf._handleGotoModel(model);
             });
         }
-        cell.setModels(self.shots()[indexPath.row()*2], self.shots()[indexPath.row()*2 + 1])
+        cell.setModels(self.modelArray()[indexPath.row()*2], self.modelArray()[indexPath.row()*2 + 1])
         return cell
     },
             

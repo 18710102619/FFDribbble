@@ -11,7 +11,6 @@
 #import <Bugly/Bugly.h>
 #import "JPEngine.h"
 #import "Masonry.h"
-#import "FFNetwork.h"
 
 @interface AppDelegate ()<BuglyDelegate>
 
@@ -30,13 +29,7 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     [self initRootViewController];
-    
-    [FFNetwork get:@"https://api.dribbble.com/v1/shots" pageindex:1 pagecount:20 success:^(id responseObject) {
-        
-    } failure:^(id error) {
-        
-    }];
-    
+
     return YES;
 }
 

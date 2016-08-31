@@ -16,8 +16,8 @@
     failure:(void (^)(id error))failure;
 
 + (void)get:(NSString *)url
-  pageindex:(int)pageindex
-  pagecount:(int)pagecount
+       page:(int)page
+      count:(int)count
     success:(void (^)(id responseObject))success
     failure:(void (^)(id error))failure;
 
