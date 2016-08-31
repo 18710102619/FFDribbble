@@ -13,10 +13,10 @@ include('FFDetailViewController.js')
 require('UIColor,UIActivityIndicatorView')
 
 defineClass('FFTimeLineViewController: UITableViewController', [
-    'loadingView',
-    'isLoading',
-    'currPage',
-    'shots',
+'loadingView',
+'isLoading',
+'currPage',
+'shots',
 ], {
     
     init: function() {

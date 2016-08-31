@@ -11,18 +11,17 @@ require('UIFont,UIColor,UILabel,UIButton,UIImageView')
 var gap=5;
 
 defineClass('FFTimeLineView: UIView', [
-    'iconButton',
-    'iconImage',
-    'titleLabel',
-    'tapCallBack',
+'iconButton',
+'iconImage',
+'titleLabel',
+'tapCallBack',
 ], {
     
     init: function() {
         self=self.super().init();
-
-        self.setFrame({x: 0, y: 0, width: FFTimeLineView_Width, height: FFTimeLineView_Height});
         self.setBackgroundColor(UIColor.whiteColor());
-        
+        self.setFrame({x: 0, y: 0, width: FFTimeLineView_Width, height: FFTimeLineView_Height});
+     
         var W=FFTimeLineView_Width - 10;
         var iconButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: W, height: W*3/4});
         //iconButton.setBackgroundColor(UIColor.orangeColor());
