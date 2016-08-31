@@ -48,7 +48,7 @@ defineClass('FFDetailHeaderView: UIView', [
             
             var panelView = self._getPanelView(model);
             self.addSubview(panelView);
-            self.setFrame({x: 0, y: 0, width: SCREEN_WIDTH, height: UIHelper.bottomY(panelView)});
+            self.setFrame({x: 0, y: 0, width: SCREEN_WIDTH, height: panelView.maxY()});
             
             authorButton.sd__setImageWithURL_forState(NSURL.URLWithString(model['user']['avatar_url']), 0);
             photoImage.sd__setImageWithURL(NSURL.URLWithString(model['images']['normal']));
@@ -70,29 +70,29 @@ defineClass('FFDetailHeaderView: UIView', [
         //seeImage.setBackgroundColor(UIColor.magentaColor());
         seeImage.setImage(UIImage.imageNamed('see.png'));
         panelView.addSubview(seeImage);
-        var seeLabel = self._genPanelLabel(model['views_count'], {x: UIHelper.rightX(seeImage) + 5, y:0, width:0, height: size});
+        var seeLabel = self._genPanelLabel(model['views_count'], {x: seeImage.maxX() + 5, y:0, width:0, height: size});
         //seeLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(seeLabel);
 
-        var commentImage = UIImageView.alloc().initWithFrame({x: UIHelper.rightX(seeLabel) + 10, y:0, width:size, height: size});
+        var commentImage = UIImageView.alloc().initWithFrame({x: seeLabel.maxX() + 10, y:0, width:size, height: size});
         //commentImage.setBackgroundColor(UIColor.magentaColor());
         commentImage.setImage(UIImage.imageNamed('comment.png'));
         panelView.addSubview(commentImage);
-        var commentLabel = self._genPanelLabel(model['comments_count'], {x: UIHelper.rightX(commentImage) + 5, y:0, width:0, height:size});
+        var commentLabel = self._genPanelLabel(model['comments_count'], {x: commentImage.maxX() + 5, y:0, width:0, height:size});
         //commentLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(commentLabel);
 
-        var likeImage = UIImageView.alloc().initWithFrame({x:UIHelper.rightX(commentLabel) + 10, y:0, width:size, height: size});
+        var likeImage = UIImageView.alloc().initWithFrame({x: commentLabel.maxX() + 10, y:0, width:size, height: size});
         //likeImage.setBackgroundColor(UIColor.magentaColor());
         likeImage.setImage(UIImage.imageNamed('like.png'));
         panelView.addSubview(likeImage);
-        var likeLabel = self._genPanelLabel(model['likes_count'], {x: UIHelper.rightX(likeImage) + 5, y:0, width:40, height:size});
+        var likeLabel = self._genPanelLabel(model['likes_count'], {x: likeImage.maxX() + 5, y:0, width:40, height:size});
         //likeLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(likeLabel);
         
-        var W=UIHelper.rightX(likeLabel);
+        var W=likeLabel.maxX();
         var X=SCREEN_WIDTH-gap-W;
-        panelView.setFrame({x :X, y: UIHelper.bottomY(self.photoImage())+gap, width: W, height: 25});
+        panelView.setFrame({x :X, y: self.photoImage().maxY()+gap, width: W, height: 25});
         return panelView;
     },
             

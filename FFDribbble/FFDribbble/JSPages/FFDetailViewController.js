@@ -9,29 +9,43 @@
 
 include('FFDetailHeaderView.js')
 
-require('UIColor,UITableViewCell')
+require('UIColor,UITableViewCell,UIActivityIndicatorView')
 
 defineClass('FFDetailViewController: UITableViewController', [
 'model',
+'modelArray',
+'currPage',
 'loadingView',
+'isLoading',
 ], {
             
     initWithModel: function(model) {
         self = self.super().init();
         if (self) {
-            self.setModel(model);
-            
             self.setTitle(model['title']);
             self.view().setBackgroundColor(UIColor.whiteColor());
             
             var headerView = FFDetailHeaderView.alloc().initWithModel(model);
             self.tableView().setTableHeaderView(headerView);
             
+            var size=40;
+            var X=(SCREEN_WIDTH - size)/2;
+            var Y=headerView.height()+(SCREEN_HEIGHT-headerView.height()-size)/2;
+            
+            var loadingView = UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
+            loadingView.setFrame({x: X, y: Y, width:size, height:size});
+            loadingView.startAnimating();
+            self.view().addSubview(loadingView);
+            self.setLoadingView(loadingView);
+            
+            self.setModel(model);
+            self.setModelArray([]);
+            self.currPage(1);
+            self._loadData();
         }
         return self;
     },
-        
-            
+           
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
         return 50;

@@ -10,6 +10,7 @@
 // NSDictionary / NSArray / NSString 在通信过程中都会自动转为 JS 类型
 autoConvertOCType(1)
 include('FFGlobal.js')
+include('FFURLAddress.js')
 include('FFDataSource.js')
 include('FFTimeLineViewController.js')
 

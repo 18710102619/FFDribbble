@@ -10,7 +10,7 @@ include('FFLoadMoreView.js')
 include('FFTimeLineCell.js')
 include('FFDetailViewController.js')
 
-require('UIColor,UIActivityIndicatorView')
+require('FFNetwork,UIColor,UIActivityIndicatorView')
 
 defineClass('FFTimeLineViewController: UITableViewController', [
 'loadingView',
@@ -56,21 +56,36 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         self.setIsLoading(1)
         var perPage = 20;
         var slf = self;
-        FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots) {
+//        FFDataSource.shareInstance().loadPublicShots(self.currPage(), perPage, function(shots) {
+//                slf.loadingView().removeFromSuperview();
+//                slf.setShots(slf.shots().concat(shots));
+//                slf.setCurrPage(slf.currPage() + 1);
+//                slf.setIsLoading(0);
+//                if (shots.length >= perPage) {
+//                    slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
+//                } else {
+//                    slf.tableView().setTableFooterView(null);
+//                }
+//                slf.tableView().reloadData();
+//            },
+//            function(){
+//            }
+//        );
+            //require('FFNetwork');
+            FFNetwork.get_pageindex_pagecount_success_failure(kList_URL, 1, 20, block('id', function(responseObject) {
                 slf.loadingView().removeFromSuperview();
-                slf.setShots(slf.shots().concat(shots));
+                slf.setShots(slf.shots().concat(responseObject));
                 slf.setCurrPage(slf.currPage() + 1);
                 slf.setIsLoading(0);
-                if (shots.length >= perPage) {
+                if (responseObject.length >= perPage) {
                     slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
                 } else {
                     slf.tableView().setTableFooterView(null);
                 }
                 slf.tableView().reloadData();
-            },
-            function(){
-            }
-        );
+            }), block('id', function(error) {
+                                                      
+            }));
     },
          
     // 跳转至详情页
