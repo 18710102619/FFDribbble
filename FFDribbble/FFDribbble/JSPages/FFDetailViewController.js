@@ -40,6 +40,7 @@ defineClass('FFDetailViewController: UITableViewController', [
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (!cell) {
             cell = UITableViewCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+            cell.setBackgroundColor(UIColor.magentaColor());
         }
     return cell
     },
