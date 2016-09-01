@@ -20,7 +20,9 @@ defineClass('FFAuthorCell: UITableViewCell', [
 'tapCallBack',
 'model1',
 'model2',
+                                              
 ], {
+            
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
         if (self) {
@@ -62,6 +64,7 @@ defineClass('FFAuthorCell: UITableViewCell', [
         self.iconButton1().sd__setImageWithURL_forState(require('NSURL').URLWithString(model1['images']['normal']), 0);
         self.iconButton2().sd__setImageWithURL_forState(require('NSURL').URLWithString(model2['images']['normal']), 0);
     },
+            
 })
 
 

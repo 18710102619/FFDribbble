@@ -8,7 +8,7 @@
 
 require('UIFont,UIColor,UIButton,UILabel')
 
-var gap=15;
+var gap=10;
 
 defineClass('FFDetailCell: UITableViewCell', [
 'authorButton',
@@ -18,7 +18,9 @@ defineClass('FFDetailCell: UITableViewCell', [
 'cellHeight',
 'tapCallBack',
 'model',
+                                              
 ], {
+            
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
         if (self) {
@@ -83,6 +85,7 @@ defineClass('FFDetailCell: UITableViewCell', [
         var cellHeight=self.commentLabel().maxY();
         self.setCellHeight(cellHeight);
     },
+            
 })
 
 

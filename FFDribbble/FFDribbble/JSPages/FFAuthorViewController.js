@@ -18,7 +18,9 @@ defineClass('FFAuthorViewController: UITableViewController', [
 'isLoading',
 'page',
 'modelArray',
+                                                              
 ], {
+            
     initWithModel: function(model) {
         self=self.super().init();
         if (self) {
@@ -108,4 +110,5 @@ defineClass('FFAuthorViewController: UITableViewController', [
             self.loadModelArray();
         }
     },
+            
 })

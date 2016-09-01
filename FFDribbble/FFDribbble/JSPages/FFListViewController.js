@@ -16,6 +16,7 @@ defineClass('FFListViewController: UITableViewController', [
 'isLoading',
 'page',
 'modelArray',
+                                                            
 ], {
     
     init: function() {
@@ -98,5 +99,6 @@ defineClass('FFListViewController: UITableViewController', [
             self.loadModelArray();
         }
     },
+            
 })
 

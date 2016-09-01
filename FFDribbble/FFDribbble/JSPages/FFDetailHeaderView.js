@@ -14,7 +14,8 @@ var authorSize=40;
 defineClass('FFDetailHeaderView: UIView', [
 'model',
 'photoImage',
-'tapCallBack',                                    
+'tapCallBack',
+                                           
 ], {
             
     initWithModel: function(model) {

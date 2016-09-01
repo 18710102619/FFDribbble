@@ -15,6 +15,7 @@ var W = SCREEN_WIDTH / 3;
 defineClass('FFAuthorHeaderView: UIView', [
 'model',
 'nameLabel',
+                                           
 ], {
 
     initWithModel: function(model) {
@@ -82,6 +83,7 @@ defineClass('FFAuthorHeaderView: UIView', [
         }
         return num ? num.toString() : 0;
     }
+            
 })
 
 

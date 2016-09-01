@@ -12,6 +12,7 @@ defineClass('FFListCell: UITableViewCell', [
 'itemView1',
 'itemView2',
 'tapCallBack',
+                                            
 ], {
    
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {

@@ -19,8 +19,9 @@ defineClass('FFListView: UIView', [
 'iconImage',
 'titleLabel',
 'tapCallBack',
+                                   
 ], {
-    
+            
     init: function() {
         self=self.super().init();
         self.setBackgroundColor(UIColor.whiteColor());
@@ -64,4 +65,5 @@ defineClass('FFListView: UIView', [
         self.iconImage().sd__setImageWithURL(require('NSURL').URLWithString(model['user']['avatar_url']));
         self.titleLabel().setText(model['user']['name']);
     },
+            
 })

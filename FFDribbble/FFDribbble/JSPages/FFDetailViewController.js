@@ -19,6 +19,7 @@ defineClass('FFDetailViewController: UITableViewController', [
 'isLoading',
 'page',
 'modelArray',
+                                                              
 ], {
             
     initWithModel: function(model) {
@@ -114,5 +115,6 @@ defineClass('FFDetailViewController: UITableViewController', [
             self.loadModelArray();
         }
     },
+            
 })
 
