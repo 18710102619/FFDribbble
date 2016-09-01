@@ -15,10 +15,10 @@ require('UIColor,UITableViewCell,UIActivityIndicatorView')
 
 defineClass('FFDetailViewController: UITableViewController', [
 'model',
-'modelArray',
-'page',
 'loadingView',
 'isLoading',
+'page',
+'modelArray',
 ], {
             
     initWithModel: function(model) {
@@ -31,8 +31,8 @@ defineClass('FFDetailViewController: UITableViewController', [
             var headerView = FFDetailHeaderView.alloc().initWithModel(model);
             self.tableView().setTableHeaderView(headerView);
             var slf=self;
-            headerView.setTapCallBack(function() {
-                slf.jumpAuthorVC();
+            headerView.setTapCallBack(function(model) {
+                slf.jumpAuthorVC(model);
             });
         
             var size=40;
@@ -75,8 +75,8 @@ defineClass('FFDetailViewController: UITableViewController', [
         }));
     },
             
-    jumpAuthorVC: function() {
-        var vc = FFAuthorViewController.alloc().init();
+    jumpAuthorVC: function(model) {
+        var vc = FFAuthorViewController.alloc().initWithModel(model);
         self.navigationController().pushViewController_animated(vc, YES);
     },
             
@@ -89,11 +89,11 @@ defineClass('FFDetailViewController: UITableViewController', [
         if (!cell) {
             cell = FFDetailCell.alloc().initWithStyle_reuseIdentifier(0, "cell");
             var slf=self;
-            cell.setTapCallBack(function() {
-                slf.jumpAuthorVC();
+            cell.setTapCallBack(function(model) {
+                slf.jumpAuthorVC(model);
             });
         }
-        cell.setModel(self.modelArray()[indexPath.row()]);
+        cell.setData(self.modelArray()[indexPath.row()]);
         return cell
     },
 

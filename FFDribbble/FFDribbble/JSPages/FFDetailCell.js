@@ -16,7 +16,8 @@ defineClass('FFDetailCell: UITableViewCell', [
 'timeLabel',
 'commentLabel',
 'cellHeight',
-'tapCallBack',                                            
+'tapCallBack',
+'model',
 ], {
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
@@ -58,11 +59,13 @@ defineClass('FFDetailCell: UITableViewCell', [
     authorButtonClicked: function() {
         var cb = self.tapCallBack();
         if (cb) {
-            cb();
+            cb(self.model()['user']);
         }
     },
             
-    setModel :function(model) {
+    setData: function(model) {
+        self.setModel(model);
+            
         self.authorButton().sd__setImageWithURL_forState(require('NSURL').URLWithString(model['user']['avatar_url']), 0);
         self.nameLabel().setText(model['user']['name'])
             
