@@ -10,7 +10,6 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Bugly/Bugly.h>
 #import "JPEngine.h"
-#import "Masonry.h"
 #import "FFNetwork.h"
 
 @interface AppDelegate ()<BuglyDelegate>

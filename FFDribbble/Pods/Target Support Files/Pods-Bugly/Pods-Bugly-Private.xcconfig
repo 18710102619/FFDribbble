@@ -1,6 +1,6 @@
 #include "Pods-Bugly.xcconfig"
 FRAMEWORK_SEARCH_PATHS = ${PODS_BUGLY_FRAMEWORK_SEARCH_PATHS}
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Bugly" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Bugly" "${PODS_ROOT}/Headers/Public/JSPatch" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/SDWebImage"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Bugly" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Bugly" "${PODS_ROOT}/Headers/Public/JSPatch" "${PODS_ROOT}/Headers/Public/SDWebImage"
 OTHER_LDFLAGS = ${PODS_BUGLY_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B1F1AC03133CD7833BA884A2"
+               BlueprintIdentifier = "D2C18F7F288A4ED4CC607A22"
                BuildableName = "libPods-JSPatch.a"
                BlueprintName = "Pods-JSPatch"
                ReferencedContainer = "container:Pods.xcodeproj">

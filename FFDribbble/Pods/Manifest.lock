@@ -24,7 +24,6 @@ PODS:
   - JSPatch (1.1):
     - JSPatch/Core
   - JSPatch/Core (1.1)
-  - Masonry (1.0.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core
   - SDWebImage/Core (3.8.1)
@@ -33,14 +32,12 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Bugly
   - JSPatch
-  - Masonry
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   Bugly: 3b56d8365c5687f74fd6fbb50c5b7ede3cdac96c
   JSPatch: ade285ad1d8f06146ed6054a39cef87509453299
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
 COCOAPODS: 0.34.4
