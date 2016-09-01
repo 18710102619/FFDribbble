@@ -1,5 +1,5 @@
 /* 
-  FFTimeLineView.js
+  FFListView.js
   FFDribbble
 
   Created by 张玲玉 on 16/8/29.
@@ -10,7 +10,7 @@ require('UIFont,UIColor,UILabel,UIButton,UIImageView')
 
 var gap=5;
 
-defineClass('FFTimeLineView: UIView', [
+defineClass('FFListView: UIView', [
 'iconButton',
 'iconImage',
 'titleLabel',
@@ -20,9 +20,9 @@ defineClass('FFTimeLineView: UIView', [
     init: function() {
         self=self.super().init();
         self.setBackgroundColor(UIColor.whiteColor());
-        self.setFrame({x: 0, y: 0, width: FFTimeLineView_Width, height: FFTimeLineView_Height});
+        self.setFrame({x: 0, y: 0, width: FFListView_Width, height: FFListView_Height});
      
-        var W=FFTimeLineView_Width - 10;
+        var W=FFListView_Width - 10;
         var iconButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: W, height: W*3/4});
         //iconButton.setBackgroundColor(UIColor.orangeColor());
         iconButton.addTarget_action_forControlEvents(self, 'handleTap', 1 <<  6);
@@ -36,7 +36,7 @@ defineClass('FFTimeLineView: UIView', [
         self.setIconImage(iconImage);
         
         var X=gap+18+7;
-        var titleLabel = UILabel.alloc().initWithFrame({x: X, y: Y, width:FFTimeLineView_Width-X-gap, height:18});
+        var titleLabel = UILabel.alloc().initWithFrame({x: X, y: Y, width:FFListView_Width-X-gap, height:18});
         //titleLabel.setBackgroundColor(UIColor.orangeColor());
         titleLabel.setFont(UIFont.systemFontOfSize(12));
         titleLabel.setTextColor(UIColor.grayColor());

@@ -13,7 +13,7 @@ include('FFGlobal.js')
 include('FFURLAddress.js')
 include('FFLoadMoreView.js')
 include('FFLoadFinishView.js')
-include('FFTimeLineViewController.js')
+include('FFListViewController.js')
 
 // 在使用Objective-C类之前需要调用 require('className’)
 require('UIViewController,UINavigationController')
@@ -22,7 +22,7 @@ require('UIViewController,UINavigationController')
 // defineJSClass()：不需要继承 OC 类，只在 JS 使用，所以直接使用 JS 原生类就行了。
 defineClass('AppDelegate', {
     initRootViewController:function() {
-        var rootVC=FFTimeLineViewController.alloc().init();
+        var rootVC=FFListViewController.alloc().init();
         var rootNC=UINavigationController.alloc().initWithRootViewController(rootVC);
         self.window().setRootViewController(rootNC);
     }

@@ -1,18 +1,17 @@
 /* 
-  FFTimeLineViewController.js
+  FFListViewController.js
   FFDribbble
 
   Created by 张玲玉 on 16/8/29.
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
-include('FFLoadMoreView.js')
-include('FFTimeLineCell.js')
+include('FFListCell.js')
 include('FFDetailViewController.js')
 
 require('FFNetwork,UIColor,UIActivityIndicatorView')
 
-defineClass('FFTimeLineViewController: UITableViewController', [
+defineClass('FFListViewController: UITableViewController', [
 'loadingView',
 'isLoading',
 'page',
@@ -74,7 +73,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
     tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (!cell) {
-            cell = FFTimeLineCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+            cell = FFListCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
             var slf=self;
             cell.setTapCallBack(function(model) {
                 slf._handleGotoModel(model);
@@ -86,7 +85,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
             
     // UITableViewDelegate
     tableView_heightForRowAtIndexPath: function(tableView, indexPath) {
-        return FFTimeLineView_Height+FFTimeLineCell_Gap;
+        return FFListView_Height+FFListCell_Gap;
     },
 
     // UIScrollViewDelegate
