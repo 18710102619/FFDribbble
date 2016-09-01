@@ -34,13 +34,13 @@ defineClass('FFListViewController: UITableViewController', [
             
             self.setModelArray([]);
             self.setPage(1);
-            self._loadModelArray();
+            self.loadModelArray();
         }
         return self;
     },
 
     // 加载数据
-    _loadModelArray: function() {
+    loadModelArray: function() {
         self.setIsLoading(1)
         var count = 20;
         var slf = self;
@@ -61,9 +61,9 @@ defineClass('FFListViewController: UITableViewController', [
     },
          
     // 跳转至详情页
-    _handleGotoModel: function(model) {
-        var detailVC = FFDetailViewController.alloc().initWithModel(model);
-        self.navigationController().pushViewController_animated(detailVC, YES);
+    jumpDetailVC: function(model) {
+        var vc = FFDetailViewController.alloc().initWithModel(model);
+        self.navigationController().pushViewController_animated(vc, YES);
     },
        
     // UITableViewDataSource
@@ -76,7 +76,7 @@ defineClass('FFListViewController: UITableViewController', [
             cell = FFListCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
             var slf=self;
             cell.setTapCallBack(function(model) {
-                slf._handleGotoModel(model);
+                slf.jumpDetailVC(model);
             });
         }
         cell.setModels(self.modelArray()[indexPath.row()*2], self.modelArray()[indexPath.row()*2 + 1])
@@ -95,7 +95,7 @@ defineClass('FFListViewController: UITableViewController', [
         var offset=contentSize.height-contentOffset.y;
         
         if (!self.isLoading() && offset < SCREEN_HEIGHT-20) {
-            self._loadModelArray();
+            self.loadModelArray();
         }
     },
 })

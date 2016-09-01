@@ -15,7 +15,8 @@ defineClass('FFDetailCell: UITableViewCell', [
 'nameLabel',
 'timeLabel',
 'commentLabel',
-'cellHeight'
+'cellHeight',
+'tapCallBack',                                            
 ], {
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
@@ -25,7 +26,7 @@ defineClass('FFDetailCell: UITableViewCell', [
 
             var authorButton = UIButton.alloc().initWithFrame({x:gap, y:gap, width:40, height:40});
             //authorButton.setBackgroundColor(UIColor.magentaColor());
-            authorButton.addTarget_action_forControlEvents(self, 'handleTapUser', 1 <<  6);
+            authorButton.addTarget_action_forControlEvents(self, 'authorButtonClicked', 1 <<  6);
             self.addSubview(authorButton);
             self.setAuthorButton(authorButton);
             
@@ -54,6 +55,13 @@ defineClass('FFDetailCell: UITableViewCell', [
         return self;
     },
 
+    authorButtonClicked: function() {
+        var cb = self.tapCallBack();
+        if (cb) {
+            cb();
+        }
+    },
+            
     setModel :function(model) {
         self.authorButton().sd__setImageWithURL_forState(require('NSURL').URLWithString(model['user']['avatar_url']), 0);
         self.nameLabel().setText(model['user']['name'])

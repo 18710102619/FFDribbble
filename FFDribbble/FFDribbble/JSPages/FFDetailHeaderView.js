@@ -12,17 +12,20 @@ var gap=10;
 var authorSize=40;
 
 defineClass('FFDetailHeaderView: UIView', [
+'model',
 'photoImage',
-
+'tapCallBack',                                    
 ], {
             
     initWithModel: function(model) {
         self = self.super().init();
         if (self) {
+            self.setModel(model);
             self.setBackgroundColor(UIColor.whiteColor());
             
             var authorButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: authorSize, height: authorSize});
             //authorButton.setBackgroundColor(UIColor.orangeColor());
+            authorButton.addTarget_action_forControlEvents(self, 'authorButtonClicked', 1 <<  6);
             self.addSubview(authorButton);
             
             var X=gap * 2 + authorSize;
@@ -46,7 +49,7 @@ defineClass('FFDetailHeaderView: UIView', [
             self.addSubview(photoImage);
             self.setPhotoImage(photoImage);
             
-            var panelView = self._getPanelView(model);
+            var panelView = self.getPanelView(model);
             self.addSubview(panelView);
             self.setFrame({x: 0, y: 0, width: SCREEN_WIDTH, height: panelView.maxY()});
             
@@ -61,7 +64,14 @@ defineClass('FFDetailHeaderView: UIView', [
         return self;
     },
   
-    _getPanelView:function(model) {
+    authorButtonClicked: function() {
+        var cb = self.tapCallBack();
+        if (cb) {
+            cb();
+        }
+    },
+            
+    getPanelView:function(model) {
         var panelView = UIView.alloc().init();
         //panelView.setBackgroundColor(UIColor.orangeColor());
         
@@ -70,7 +80,7 @@ defineClass('FFDetailHeaderView: UIView', [
         //seeImage.setBackgroundColor(UIColor.magentaColor());
         seeImage.setImage(UIImage.imageNamed('see.png'));
         panelView.addSubview(seeImage);
-        var seeLabel = self._genPanelLabel(model['views_count'], {x: seeImage.maxX() + 5, y:0, width:0, height: size});
+        var seeLabel = self.genPanelLabel(model['views_count'], {x: seeImage.maxX() + 5, y:0, width:0, height: size});
         //seeLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(seeLabel);
 
@@ -78,7 +88,7 @@ defineClass('FFDetailHeaderView: UIView', [
         //commentImage.setBackgroundColor(UIColor.magentaColor());
         commentImage.setImage(UIImage.imageNamed('comment.png'));
         panelView.addSubview(commentImage);
-        var commentLabel = self._genPanelLabel(model['comments_count'], {x: commentImage.maxX() + 5, y:0, width:0, height:size});
+        var commentLabel = self.genPanelLabel(model['comments_count'], {x: commentImage.maxX() + 5, y:0, width:0, height:size});
         //commentLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(commentLabel);
 
@@ -86,7 +96,7 @@ defineClass('FFDetailHeaderView: UIView', [
         //likeImage.setBackgroundColor(UIColor.magentaColor());
         likeImage.setImage(UIImage.imageNamed('like.png'));
         panelView.addSubview(likeImage);
-        var likeLabel = self._genPanelLabel(model['likes_count'], {x: likeImage.maxX() + 5, y:0, width:40, height:size});
+        var likeLabel = self.genPanelLabel(model['likes_count'], {x: likeImage.maxX() + 5, y:0, width:40, height:size});
         //likeLabel.setBackgroundColor(UIColor.magentaColor());
         panelView.addSubview(likeLabel);
         
@@ -96,7 +106,7 @@ defineClass('FFDetailHeaderView: UIView', [
         return panelView;
     },
             
-    _genPanelLabel: function(value, frame) {
+    genPanelLabel: function(value, frame) {
         var viewLabel = UILabel.alloc().initWithFrame(frame)
         viewLabel.setText(value.toString());
         viewLabel.setFont(UIFont.systemFontOfSize(12));

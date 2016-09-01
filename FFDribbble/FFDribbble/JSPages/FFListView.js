@@ -25,7 +25,7 @@ defineClass('FFListView: UIView', [
         var W=FFListView_Width - 10;
         var iconButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: W, height: W*3/4});
         //iconButton.setBackgroundColor(UIColor.orangeColor());
-        iconButton.addTarget_action_forControlEvents(self, 'handleTap', 1 <<  6);
+        iconButton.addTarget_action_forControlEvents(self, 'iconButtonClicked', 1 <<  6);
         self.addSubview(iconButton);
         self.setIconButton(iconButton);
             
@@ -47,7 +47,7 @@ defineClass('FFListView: UIView', [
     },
          
     // 点击事件
-    handleTap: function() {
+    iconButtonClicked: function() {
         var cb = self.tapCallBack();
         if (cb) {
             cb();

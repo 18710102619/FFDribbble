@@ -8,8 +8,8 @@
 
 
 include('FFDetailHeaderView.js')
-include('FFLoadMoreView.js')
 include('FFDetailCell.js')
+include('FFAuthorViewController.js')
 
 require('UIColor,UITableViewCell,UIActivityIndicatorView')
 
@@ -24,12 +24,17 @@ defineClass('FFDetailViewController: UITableViewController', [
     initWithModel: function(model) {
         self = self.super().init();
         if (self) {
+            self.setModel(model);
             self.setTitle(model['title']);
             self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
             
             var headerView = FFDetailHeaderView.alloc().initWithModel(model);
             self.tableView().setTableHeaderView(headerView);
-            
+            var slf=self;
+            headerView.setTapCallBack(function() {
+                slf.jumpAuthorVC();
+            });
+        
             var size=40;
             var X=(SCREEN_WIDTH - size)/2;
             var Y=headerView.height()+(SCREEN_HEIGHT-headerView.height()-size)/2-40;
@@ -40,16 +45,15 @@ defineClass('FFDetailViewController: UITableViewController', [
             self.view().addSubview(loadingView);
             self.setLoadingView(loadingView);
             
-            self.setModel(model);
             self.setModelArray([]);
             self.setPage(1);
-            self._loadModelArray();
+            self.loadModelArray();
         }
         return self;
     },
           
     // 加载数据
-    _loadModelArray: function() {
+    loadModelArray: function() {
         self.setIsLoading(1)
         var count = 20;
         var slf = self;
@@ -71,6 +75,11 @@ defineClass('FFDetailViewController: UITableViewController', [
         }));
     },
             
+    jumpAuthorVC: function() {
+        var vc = FFAuthorViewController.alloc().init();
+        self.navigationController().pushViewController_animated(vc, YES);
+    },
+            
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
         return self.modelArray().length;
@@ -78,7 +87,11 @@ defineClass('FFDetailViewController: UITableViewController', [
     tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
         if (!cell) {
-            cell = FFDetailCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+            cell = FFDetailCell.alloc().initWithStyle_reuseIdentifier(0, "cell");
+            var slf=self;
+            cell.setTapCallBack(function() {
+                slf.jumpAuthorVC();
+            });
         }
         cell.setModel(self.modelArray()[indexPath.row()]);
         return cell
@@ -98,7 +111,7 @@ defineClass('FFDetailViewController: UITableViewController', [
         var offset=contentSize.height-contentOffset.y;
 
         if (!self.isLoading() && offset < SCREEN_HEIGHT-20) {
-            self._loadModelArray();
+            self.loadModelArray();
         }
     },
 })
