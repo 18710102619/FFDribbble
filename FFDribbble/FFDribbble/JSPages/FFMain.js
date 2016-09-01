@@ -11,6 +11,8 @@
 autoConvertOCType(1)
 include('FFGlobal.js')
 include('FFURLAddress.js')
+include('FFLoadMoreView.js')
+include('FFLoadFinishView.js')
 include('FFTimeLineViewController.js')
 
 // 在使用Objective-C类之前需要调用 require('className’)

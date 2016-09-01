@@ -18,6 +18,7 @@
 		368B8A561D740C5400B80926 /* FFGlobal.js in Resources */ = {isa = PBXBuildFile; fileRef = 368B8A551D740C5400B80926 /* FFGlobal.js */; };
 		368B8A581D740CD500B80926 /* FFTimeLineView.js in Resources */ = {isa = PBXBuildFile; fileRef = 368B8A571D740CD500B80926 /* FFTimeLineView.js */; };
 		368C99F41D7446C700E7EDA3 /* FFTimeLineCell.js in Resources */ = {isa = PBXBuildFile; fileRef = 368C99F31D7446C700E7EDA3 /* FFTimeLineCell.js */; };
+		36A8D7C11D77CFE0004564F9 /* FFLoadFinishView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */; };
 		36A8F7581D7407B4002215B9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8F7541D7407B4002215B9 /* UIColor+Hex.m */; };
 		36A8F7591D7407B4002215B9 /* FFMain.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7561D7407B4002215B9 /* FFMain.js */; };
 		36A8F75A1D7407B4002215B9 /* FFTimeLineViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */; };
@@ -67,6 +68,7 @@
 		368B8A551D740C5400B80926 /* FFGlobal.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFGlobal.js; sourceTree = "<group>"; };
 		368B8A571D740CD500B80926 /* FFTimeLineView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFTimeLineView.js; sourceTree = "<group>"; };
 		368C99F31D7446C700E7EDA3 /* FFTimeLineCell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFTimeLineCell.js; sourceTree = "<group>"; };
+		36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFLoadFinishView.js; sourceTree = "<group>"; };
 		36A8F7531D7407B4002215B9 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		36A8F7541D7407B4002215B9 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		36A8F7561D7407B4002215B9 /* FFMain.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFMain.js; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				36A8F7561D7407B4002215B9 /* FFMain.js */,
 				368B8A551D740C5400B80926 /* FFGlobal.js */,
 				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
+				36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */,
 				368C99F31D7446C700E7EDA3 /* FFTimeLineCell.js */,
 				368B8A571D740CD500B80926 /* FFTimeLineView.js */,
 				36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */,
@@ -337,6 +340,7 @@
 				365EE7071D76C4D50042FBD6 /* FFURLAddress.js in Resources */,
 				368C99F41D7446C700E7EDA3 /* FFTimeLineCell.js in Resources */,
 				36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */,
+				36A8D7C11D77CFE0004564F9 /* FFLoadFinishView.js in Resources */,
 				36E9762B1D7554D00059718A /* FFDetailViewController.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

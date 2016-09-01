@@ -23,29 +23,18 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         self=self.super().init();
         if (self) {
             self.setTitle('首页');
-                
-            // 设置背景颜色
-            var color = UIColor.colorWithHex(0xFC7274);
-            self.view().setBackgroundColor(color);
             
-            // 初始化变量
-            self.setModelArray([]);
-            self.setPage(1);
-            
-            // 设置tableView
             self.tableView().setSeparatorStyle(0);
             self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
-                
-            // 设置旋转进度轮
-            var W=40;
+
             var loadingView=UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
-            //loadingView.setBackgroundColor(UIColor.magentaColor());
-            loadingView.setFrame({x: (SCREEN_WIDTH-W)/2, y: (SCREEN_HEIGHT-64-W)/2, width: W, height: W});
+            loadingView.setFrame({x: (SCREEN_WIDTH-40)/2, y: (SCREEN_HEIGHT-64-40)/2, width: 40, height: 40});
             loadingView.startAnimating();
             self.view().addSubview(loadingView);
             self.setLoadingView(loadingView);
             
-            // 加载数据
+            self.setModelArray([]);
+            self.setPage(1);
             self._loadModelArray();
         }
         return self;
@@ -64,7 +53,7 @@ defineClass('FFTimeLineViewController: UITableViewController', [
                 if (responseObject.length >= count) {
                     slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
                 } else {
-                    slf.tableView().setTableFooterView(null);
+                    slf.tableView().setTableFooterView(FFLoadFinishView.alloc().init());
                 }
                 slf.tableView().reloadData();
             }), block('id', function(error) {
@@ -78,15 +67,6 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         self.navigationController().pushViewController_animated(detailVC, YES);
     },
        
-    // 滑动加载数据
-    scrollViewDidScroll: function(scrollView) {
-        var contentOffset = scrollView.contentOffset();
-        var contentSize = scrollView.contentSize();
-        if (!self.isLoading() && contentOffset.y - contentSize.height > -SCREEN_HEIGHT) {
-            self._loadmodelArray();
-        }
-    },
-            
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
         return self.modelArray().length / 2;
@@ -109,4 +89,15 @@ defineClass('FFTimeLineViewController: UITableViewController', [
         return FFTimeLineView_Height+FFTimeLineCell_Gap;
     },
 
+    // UIScrollViewDelegate
+    scrollViewDidScroll: function(scrollView) {
+        var contentOffset = scrollView.contentOffset();
+        var contentSize = scrollView.contentSize();
+        var offset=contentSize.height-contentOffset.y;
+        
+        if (!self.isLoading() && offset < SCREEN_HEIGHT-20) {
+            self._loadModelArray();
+        }
+    },
 })
+

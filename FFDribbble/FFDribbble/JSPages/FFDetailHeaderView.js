@@ -19,7 +19,7 @@ defineClass('FFDetailHeaderView: UIView', [
     initWithModel: function(model) {
         self = self.super().init();
         if (self) {
-            //self.setBackgroundColor(UIColor.yellowColor());
+            self.setBackgroundColor(UIColor.whiteColor());
             
             var authorButton = UIButton.alloc().initWithFrame({x: gap, y: gap, width: authorSize, height: authorSize});
             //authorButton.setBackgroundColor(UIColor.orangeColor());

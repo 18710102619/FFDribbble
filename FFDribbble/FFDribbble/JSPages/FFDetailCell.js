@@ -8,7 +8,7 @@
 
 require('UIFont,UIColor,UIButton,UILabel')
 
-var gap=10;
+var gap=15;
 
 defineClass('FFDetailCell: UITableViewCell', [
 'authorButton',
@@ -20,7 +20,7 @@ defineClass('FFDetailCell: UITableViewCell', [
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
         if (self) {
-            //self.setBackgroundColor(UIColor.magentaColor());
+            self.setBackgroundColor(UIColor.whiteColor());
             self.setSelectionStyle(0);
 
             var authorButton = UIButton.alloc().initWithFrame({x:gap, y:gap, width:40, height:40});

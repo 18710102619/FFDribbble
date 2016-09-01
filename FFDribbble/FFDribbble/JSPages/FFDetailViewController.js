@@ -25,8 +25,7 @@ defineClass('FFDetailViewController: UITableViewController', [
         self = self.super().init();
         if (self) {
             self.setTitle(model['title']);
-            self.view().setBackgroundColor(UIColor.whiteColor());
-            //self.tableView().setSeparatorStyle(0);
+            self.tableView().setBackgroundColor(UIColor.colorWithWhite_alpha(.9, 1));
             
             var headerView = FFDetailHeaderView.alloc().initWithModel(model);
             self.tableView().setTableHeaderView(headerView);
@@ -52,7 +51,7 @@ defineClass('FFDetailViewController: UITableViewController', [
     // 加载数据
     _loadModelArray: function() {
         self.setIsLoading(1)
-        var count = 10;
+        var count = 20;
         var slf = self;
         var url=URL_Detail+self.model()['id']+'/comments';
             
@@ -64,7 +63,7 @@ defineClass('FFDetailViewController: UITableViewController', [
             if (responseObject.length >= count) {
                 slf.tableView().setTableFooterView(FFLoadMoreView.alloc().init());
             } else {
-                slf.tableView().setTableFooterView(null);
+                slf.tableView().setTableFooterView(FFLoadFinishView.alloc().init());
             }
             slf.tableView().reloadData();
         }), block('id', function(error) {
@@ -90,4 +89,17 @@ defineClass('FFDetailViewController: UITableViewController', [
         var cell = self.tableView_cellForRowAtIndexPath(tableView, indexPath);
         return cell.cellHeight();
     },
+    
+
+    // UIScrollViewDelegate
+    scrollViewDidScroll: function(scrollView) {
+        var contentOffset = scrollView.contentOffset();
+        var contentSize = scrollView.contentSize();
+        var offset=contentSize.height-contentOffset.y;
+
+        if (!self.isLoading() && offset < SCREEN_HEIGHT-20) {
+            self._loadModelArray();
+        }
+    },
 })
+
