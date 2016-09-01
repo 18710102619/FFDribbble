@@ -7,6 +7,8 @@
 */
 
 include('FFAuthorHeaderView.js')
+include('FFAuthorCell.js')
+include('FFDetailViewController.js')
 
 require('FFNetwork,UIColor,UIActivityIndicatorView')
 
@@ -29,7 +31,7 @@ defineClass('FFAuthorViewController: UITableViewController', [
             var headerView = FFAuthorHeaderView.alloc().initWithModel(model);
             self.tableView().setTableHeaderView(headerView);
             
-            var Y=headerView.height()+(SCREEN_HEIGHT-headerView.height()-40)/2;
+            var Y=headerView.height()+(SCREEN_HEIGHT-headerView.height()-40)/2-20;
             var loadingView=UIActivityIndicatorView.alloc().initWithActivityIndicatorStyle(2);
             loadingView.setFrame({x: (SCREEN_WIDTH-40)/2, y: Y, width: 40, height: 40});
             loadingView.startAnimating();
@@ -51,8 +53,8 @@ defineClass('FFAuthorViewController: UITableViewController', [
     var slf = self;
     var url=URL_Author+self.model()['id']+'/shots';
             
-    FFNetwork.get_page_count_success_failure(URL_List, self.page(), count, block('id', function(responseObject) {
-            //slf.loadingView().removeFromSuperview();
+    FFNetwork.get_page_count_success_failure(url, self.page(), count, block('id', function(responseObject) {
+            slf.loadingView().removeFromSuperview();
             slf.setModelArray(slf.modelArray().concat(responseObject));
             slf.setPage(slf.page() + 1);
             slf.setIsLoading(0);
@@ -66,6 +68,15 @@ defineClass('FFAuthorViewController: UITableViewController', [
 
         }));
     },
+          
+    // 跳转至详情页
+    jumpDetailVC: function(model) {
+        if (!model.user) {
+            model.user = self.model();
+        }
+        var vc = FFDetailViewController.alloc().initWithModel(model);
+        self.navigationController().pushViewController_animated(vc, YES);
+    },
             
     // UITableViewDataSource
     tableView_numberOfRowsInSection: function(tableView, section) {
@@ -74,7 +85,7 @@ defineClass('FFAuthorViewController: UITableViewController', [
     tableView_cellForRowAtIndexPath: function(tableView, indexPath) {
         var cell = tableView.dequeueReusableCellWithIdentifier("cell")
             if (!cell) {
-                cell = FFListCell.alloc().initWithStyle_reuseIdentifier(0, "cell")
+                cell = FFAuthorCell.alloc().initWithStyle_reuseIdentifier(0, "cell");
                 var slf=self;
                 cell.setTapCallBack(function(model) {
                     slf.jumpDetailVC(model);
@@ -86,7 +97,7 @@ defineClass('FFAuthorViewController: UITableViewController', [
     
     // UITableViewDelegate
     tableView_heightForRowAtIndexPath: function(tableView, indexPath) {
-        return FFListView_Height+FFListCell_Gap;
+        return FFAuthorCell_Height;
     },
     
     // UIScrollViewDelegate

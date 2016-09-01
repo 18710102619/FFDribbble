@@ -75,6 +75,7 @@ defineClass('FFDetailViewController: UITableViewController', [
         }));
     },
             
+    // 跳转至作者页
     jumpAuthorVC: function(model) {
         var vc = FFAuthorViewController.alloc().initWithModel(model);
         self.navigationController().pushViewController_animated(vc, YES);

@@ -14,3 +14,5 @@ global.FFListCell_Gap = 8;
 global.FFListView_Width = (SCREEN_WIDTH - global.FFListCell_Gap * 3) / 2;
 global.FFListView_Height = global.FFListView_Width * 3/4 + 30;
 
+
+
