@@ -104,7 +104,6 @@ defineClass('FFDetailViewController: UITableViewController', [
         return cell.cellHeight();
     },
     
-
     // UIScrollViewDelegate
     scrollViewDidScroll: function(scrollView) {
         var contentOffset = scrollView.contentOffset();

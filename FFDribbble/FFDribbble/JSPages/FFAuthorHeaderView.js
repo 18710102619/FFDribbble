@@ -6,11 +6,11 @@
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
+require('NSURL,UIFont,UIColor,UIView,UIImage,UILabel,UIButton')
+
 var gap=15;
 var authorSize=140;
 var W = SCREEN_WIDTH / 3;
-
-require('NSURL,UIFont,UIColor,UIView,UIImage,UILabel,UIButton')
 
 defineClass('FFAuthorHeaderView: UIView', [
 'model',

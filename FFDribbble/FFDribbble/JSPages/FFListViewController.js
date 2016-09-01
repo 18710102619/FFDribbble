@@ -85,7 +85,7 @@ defineClass('FFListViewController: UITableViewController', [
             
     // UITableViewDelegate
     tableView_heightForRowAtIndexPath: function(tableView, indexPath) {
-        return FFListView_Height+FFListCell_Gap;
+        return FFListView_Height+FFListView_Gap;
     },
 
     // UIScrollViewDelegate

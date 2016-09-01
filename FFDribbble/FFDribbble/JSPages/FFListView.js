@@ -10,6 +10,10 @@ require('UIFont,UIColor,UILabel,UIButton,UIImageView')
 
 var gap=5;
 
+global.FFListView_Gap = 8;
+global.FFListView_Width = (SCREEN_WIDTH - FFListView_Gap * 3) / 2;
+global.FFListView_Height = FFListView_Width * 3/4 + 30;
+
 defineClass('FFListView: UIView', [
 'iconButton',
 'iconImage',

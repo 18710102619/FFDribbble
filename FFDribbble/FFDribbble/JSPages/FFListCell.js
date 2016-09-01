@@ -23,8 +23,8 @@ defineClass('FFListCell: UITableViewCell', [
             var itemView1 = FFListView.alloc().init();
             var itemView2 = FFListView.alloc().init();
             
-            itemView1.setFrame({x: FFListCell_Gap, y: FFListCell_Gap, width: itemView1.frame().width, height: itemView1.frame().height});
-            itemView2.setFrame({x:FFListCell_Gap*2 + itemView1.frame().width, y: FFListCell_Gap, width: itemView2.frame().width, height: itemView2.frame().height});
+            itemView1.setFrame({x: FFListView_Gap, y: FFListView_Gap, width: itemView1.frame().width, height: itemView1.frame().height});
+            itemView2.setFrame({x:FFListView_Gap*2 + itemView1.frame().width, y: FFListView_Gap, width: itemView2.frame().width, height: itemView2.frame().height});
             
             self.addSubview(itemView1);
             self.addSubview(itemView2);

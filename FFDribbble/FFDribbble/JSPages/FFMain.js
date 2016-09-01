@@ -6,6 +6,8 @@
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
+global.SCREEN_WIDTH = require('UIScreen').mainScreen().bounds().width;
+global.SCREEN_HEIGHT = require('UIScreen').mainScreen().bounds().height;
 
 // NSDictionary / NSArray / NSString 在通信过程中都会自动转为 JS 类型
 autoConvertOCType(1)

@@ -15,7 +15,6 @@
 		3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */ = {isa = PBXBuildFile; fileRef = 3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */; };
 		365EE7071D76C4D50042FBD6 /* FFURLAddress.js in Resources */ = {isa = PBXBuildFile; fileRef = 365EE7061D76C4D50042FBD6 /* FFURLAddress.js */; };
 		368B8A521D74098D00B80926 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 368B8A511D74098D00B80926 /* UIView+Extension.m */; };
-		368B8A561D740C5400B80926 /* FFGlobal.js in Resources */ = {isa = PBXBuildFile; fileRef = 368B8A551D740C5400B80926 /* FFGlobal.js */; };
 		368B8A581D740CD500B80926 /* FFListView.js in Resources */ = {isa = PBXBuildFile; fileRef = 368B8A571D740CD500B80926 /* FFListView.js */; };
 		368C99F41D7446C700E7EDA3 /* FFListCell.js in Resources */ = {isa = PBXBuildFile; fileRef = 368C99F31D7446C700E7EDA3 /* FFListCell.js */; };
 		36A8D7C11D77CFE0004564F9 /* FFLoadFinishView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */; };
@@ -68,7 +67,6 @@
 		365EE7061D76C4D50042FBD6 /* FFURLAddress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFURLAddress.js; sourceTree = "<group>"; };
 		368B8A501D74098D00B80926 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		368B8A511D74098D00B80926 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		368B8A551D740C5400B80926 /* FFGlobal.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFGlobal.js; sourceTree = "<group>"; };
 		368B8A571D740CD500B80926 /* FFListView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFListView.js; sourceTree = "<group>"; };
 		368C99F31D7446C700E7EDA3 /* FFListCell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFListCell.js; sourceTree = "<group>"; };
 		36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFLoadFinishView.js; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				36A8F7561D7407B4002215B9 /* FFMain.js */,
-				368B8A551D740C5400B80926 /* FFGlobal.js */,
 				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
 				36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */,
 				368B8A571D740CD500B80926 /* FFListView.js */,
@@ -342,7 +339,6 @@
 				36A8F75A1D7407B4002215B9 /* FFListViewController.js in Resources */,
 				3604756C1D73F30300D93E0A /* Assets.xcassets in Resources */,
 				36A8F7591D7407B4002215B9 /* FFMain.js in Resources */,
-				368B8A561D740C5400B80926 /* FFGlobal.js in Resources */,
 				368B8A581D740CD500B80926 /* FFListView.js in Resources */,
 				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
 				36A8D7C31D77E40B004564F9 /* FFAuthorViewController.js in Resources */,

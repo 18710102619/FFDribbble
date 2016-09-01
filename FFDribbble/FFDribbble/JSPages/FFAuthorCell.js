@@ -21,7 +21,6 @@ defineClass('FFAuthorCell: UITableViewCell', [
 'model1',
 'model2',
 ], {
-
     initWithStyle_reuseIdentifier: function(style, reuseIdentifier) {
         self = self.super().initWithStyle_reuseIdentifier(style, reuseIdentifier);
         if (self) {

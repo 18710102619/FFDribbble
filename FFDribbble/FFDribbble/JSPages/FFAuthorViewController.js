@@ -19,7 +19,6 @@ defineClass('FFAuthorViewController: UITableViewController', [
 'page',
 'modelArray',
 ], {
-
     initWithModel: function(model) {
         self=self.super().init();
         if (self) {
@@ -105,10 +104,8 @@ defineClass('FFAuthorViewController: UITableViewController', [
         var contentOffset = scrollView.contentOffset();
         var contentSize = scrollView.contentSize();
         var offset=contentSize.height-contentOffset.y;
-        
         if (!self.isLoading() && offset < SCREEN_HEIGHT-20) {
             self.loadModelArray();
         }
     },
-
 })
