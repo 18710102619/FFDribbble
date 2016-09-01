@@ -24,7 +24,7 @@
 		36CFCBBF1D76AE0500B343A3 /* FFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */; };
 		36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36D7F0EE1D758BA6005344D1 /* FFDetailHeaderView.js */; };
 		36E9762B1D7554D00059718A /* FFDetailViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36E9762A1D7554D00059718A /* FFDetailViewController.js */; };
-		36E9762D1D7554E90059718A /* FFDetailView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36E9762C1D7554E90059718A /* FFDetailView.js */; };
+		36E9762D1D7554E90059718A /* FFDetailCell.js in Resources */ = {isa = PBXBuildFile; fileRef = 36E9762C1D7554E90059718A /* FFDetailCell.js */; };
 		C6813F73036AF85D74033FAE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF67C943C00BD9AB380FB55 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +75,7 @@
 		36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNetwork.m; sourceTree = "<group>"; };
 		36D7F0EE1D758BA6005344D1 /* FFDetailHeaderView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailHeaderView.js; sourceTree = "<group>"; };
 		36E9762A1D7554D00059718A /* FFDetailViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailViewController.js; sourceTree = "<group>"; };
-		36E9762C1D7554E90059718A /* FFDetailView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailView.js; sourceTree = "<group>"; };
+		36E9762C1D7554E90059718A /* FFDetailCell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFDetailCell.js; sourceTree = "<group>"; };
 		DBF67C943C00BD9AB380FB55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -205,7 +205,7 @@
 				368C99F31D7446C700E7EDA3 /* FFTimeLineCell.js */,
 				368B8A571D740CD500B80926 /* FFTimeLineView.js */,
 				36A8F7571D7407B4002215B9 /* FFTimeLineViewController.js */,
-				36E9762C1D7554E90059718A /* FFDetailView.js */,
+				36E9762C1D7554E90059718A /* FFDetailCell.js */,
 				36D7F0EE1D758BA6005344D1 /* FFDetailHeaderView.js */,
 				36E9762A1D7554D00059718A /* FFDetailViewController.js */,
 			);
@@ -333,7 +333,7 @@
 				368B8A561D740C5400B80926 /* FFGlobal.js in Resources */,
 				368B8A581D740CD500B80926 /* FFTimeLineView.js in Resources */,
 				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
-				36E9762D1D7554E90059718A /* FFDetailView.js in Resources */,
+				36E9762D1D7554E90059718A /* FFDetailCell.js in Resources */,
 				365EE7071D76C4D50042FBD6 /* FFURLAddress.js in Resources */,
 				368C99F41D7446C700E7EDA3 /* FFTimeLineCell.js in Resources */,
 				36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */,

@@ -11,6 +11,7 @@
 #import <Bugly/Bugly.h>
 #import "JPEngine.h"
 #import "Masonry.h"
+#import "FFNetwork.h"
 
 @interface AppDelegate ()<BuglyDelegate>
 
@@ -29,7 +30,7 @@
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     [self initRootViewController];
-
+    
     return YES;
 }
 

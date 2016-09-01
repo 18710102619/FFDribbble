@@ -11,6 +11,6 @@ global.URL_Host = 'https://api.dribbble.com';
 
 global.URL_List = URL_Host + '/v1/shots';
 
-global.URL_Detail = URL_Host + '/v1/shots/v1/shots/comments';
+global.URL_Detail = URL_Host + '/v1/shots/';
 
-global.URL_Author = URL_Host + '/v1/shots/v1/users/shots';
+global.URL_Author = URL_Host + '/v1/users/';

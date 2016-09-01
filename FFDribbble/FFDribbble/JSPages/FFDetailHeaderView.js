@@ -6,7 +6,7 @@
   Copyright © 2016年 bj.zly.com. All rights reserved.
 */
 
-require('NSURL,UIFont,UIColor,UIView,UIImage,UILabel,UIButton')
+require('NSURL,UIFont,UIColor,CALayer,UIView,UIImage,UILabel,UIButton')
 
 var gap=10;
 var authorSize=40;
@@ -60,7 +60,7 @@ defineClass('FFDetailHeaderView: UIView', [
         }
         return self;
     },
-
+  
     _getPanelView:function(model) {
         var panelView = UIView.alloc().init();
         //panelView.setBackgroundColor(UIColor.orangeColor());
