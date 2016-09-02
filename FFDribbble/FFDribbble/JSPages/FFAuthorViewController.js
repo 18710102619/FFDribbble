@@ -8,7 +8,6 @@
 
 include('FFAuthorHeaderView.js')
 include('FFAuthorCell.js')
-include('FFDetailViewController.js')
 
 require('FFNetwork,UIColor,UIActivityIndicatorView')
 
