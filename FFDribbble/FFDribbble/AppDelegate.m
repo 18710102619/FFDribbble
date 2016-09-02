@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupBugly];
-    [self setupJSPatch];
+    //[self setupJSPatch];
     [self setupJPEngine];
     
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -30,11 +30,6 @@
     [self initRootViewController];
     
     return YES;
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    [JSPatch sync];
 }
 
 - (void)initRootViewController
