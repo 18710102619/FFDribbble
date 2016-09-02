@@ -23,8 +23,8 @@
 		36A8D7C71D7812F9004564F9 /* FFAuthorCell.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C61D7812F9004564F9 /* FFAuthorCell.js */; };
 		36A8D8161D792480004564F9 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A8D8151D792480004564F9 /* JSPatch.framework */; };
 		36A8D8181D7929AC004564F9 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A8D8171D7929AC004564F9 /* JavaScriptCore.framework */; };
+		36A8D81A1D79482A004564F9 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D8191D79482A004564F9 /* main.js */; };
 		36A8F7581D7407B4002215B9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8F7541D7407B4002215B9 /* UIColor+Hex.m */; };
-		36A8F7591D7407B4002215B9 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7561D7407B4002215B9 /* main.js */; };
 		36A8F75A1D7407B4002215B9 /* FFListViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7571D7407B4002215B9 /* FFListViewController.js */; };
 		36CFCBBF1D76AE0500B343A3 /* FFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */; };
 		36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36D7F0EE1D758BA6005344D1 /* FFDetailHeaderView.js */; };
@@ -77,9 +77,9 @@
 		36A8D7C61D7812F9004564F9 /* FFAuthorCell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFAuthorCell.js; sourceTree = "<group>"; };
 		36A8D8151D792480004564F9 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
 		36A8D8171D7929AC004564F9 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		36A8D8191D79482A004564F9 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = JSPages/main.js; sourceTree = "<group>"; };
 		36A8F7531D7407B4002215B9 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		36A8F7541D7407B4002215B9 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		36A8F7561D7407B4002215B9 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = JSPages/main.js; sourceTree = "<group>"; };
 		36A8F7571D7407B4002215B9 /* FFListViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFListViewController.js; sourceTree = "<group>"; };
 		36CFCBBD1D76AE0500B343A3 /* FFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFNetwork.h; sourceTree = "<group>"; };
 		36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNetwork.m; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 			children = (
 				3604756B1D73F30300D93E0A /* Assets.xcassets */,
 				360475701D73F30300D93E0A /* Info.plist */,
-				36A8F7561D7407B4002215B9 /* main.js */,
 				360475601D73F30300D93E0A /* main.m */,
+				36A8D8191D79482A004564F9 /* main.js */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -346,7 +346,6 @@
 			files = (
 				36A8F75A1D7407B4002215B9 /* FFListViewController.js in Resources */,
 				3604756C1D73F30300D93E0A /* Assets.xcassets in Resources */,
-				36A8F7591D7407B4002215B9 /* main.js in Resources */,
 				368B8A581D740CD500B80926 /* FFListView.js in Resources */,
 				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
 				36A8D7C31D77E40B004564F9 /* FFAuthorViewController.js in Resources */,
@@ -356,6 +355,7 @@
 				36A8D7C71D7812F9004564F9 /* FFAuthorCell.js in Resources */,
 				36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */,
 				36A8D7C11D77CFE0004564F9 /* FFLoadFinishView.js in Resources */,
+				36A8D81A1D79482A004564F9 /* main.js in Resources */,
 				36E9762B1D7554D00059718A /* FFDetailViewController.js in Resources */,
 				36A8D7C51D7800CD004564F9 /* FFAuthorHeaderView.js in Resources */,
 			);
