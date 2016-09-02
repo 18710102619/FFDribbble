@@ -21,8 +21,10 @@
 		36A8D7C31D77E40B004564F9 /* FFAuthorViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C21D77E40B004564F9 /* FFAuthorViewController.js */; };
 		36A8D7C51D7800CD004564F9 /* FFAuthorHeaderView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C41D7800CD004564F9 /* FFAuthorHeaderView.js */; };
 		36A8D7C71D7812F9004564F9 /* FFAuthorCell.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8D7C61D7812F9004564F9 /* FFAuthorCell.js */; };
+		36A8D8161D792480004564F9 /* JSPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A8D8151D792480004564F9 /* JSPatch.framework */; };
+		36A8D8181D7929AC004564F9 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36A8D8171D7929AC004564F9 /* JavaScriptCore.framework */; };
 		36A8F7581D7407B4002215B9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A8F7541D7407B4002215B9 /* UIColor+Hex.m */; };
-		36A8F7591D7407B4002215B9 /* FFMain.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7561D7407B4002215B9 /* FFMain.js */; };
+		36A8F7591D7407B4002215B9 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7561D7407B4002215B9 /* main.js */; };
 		36A8F75A1D7407B4002215B9 /* FFListViewController.js in Resources */ = {isa = PBXBuildFile; fileRef = 36A8F7571D7407B4002215B9 /* FFListViewController.js */; };
 		36CFCBBF1D76AE0500B343A3 /* FFNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */; };
 		36D7F0EF1D758BA6005344D1 /* FFDetailHeaderView.js in Resources */ = {isa = PBXBuildFile; fileRef = 36D7F0EE1D758BA6005344D1 /* FFDetailHeaderView.js */; };
@@ -73,9 +75,11 @@
 		36A8D7C21D77E40B004564F9 /* FFAuthorViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFAuthorViewController.js; sourceTree = "<group>"; };
 		36A8D7C41D7800CD004564F9 /* FFAuthorHeaderView.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFAuthorHeaderView.js; sourceTree = "<group>"; };
 		36A8D7C61D7812F9004564F9 /* FFAuthorCell.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFAuthorCell.js; sourceTree = "<group>"; };
+		36A8D8151D792480004564F9 /* JSPatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSPatch.framework; sourceTree = "<group>"; };
+		36A8D8171D7929AC004564F9 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		36A8F7531D7407B4002215B9 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		36A8F7541D7407B4002215B9 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		36A8F7561D7407B4002215B9 /* FFMain.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFMain.js; sourceTree = "<group>"; };
+		36A8F7561D7407B4002215B9 /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = main.js; path = JSPages/main.js; sourceTree = "<group>"; };
 		36A8F7571D7407B4002215B9 /* FFListViewController.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = FFListViewController.js; sourceTree = "<group>"; };
 		36CFCBBD1D76AE0500B343A3 /* FFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFNetwork.h; sourceTree = "<group>"; };
 		36CFCBBE1D76AE0500B343A3 /* FFNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFNetwork.m; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A8D8181D7929AC004564F9 /* JavaScriptCore.framework in Frameworks */,
+				36A8D8161D792480004564F9 /* JSPatch.framework in Frameworks */,
 				C6813F73036AF85D74033FAE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +120,7 @@
 		04E8C288B60745C707521D5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				36A8D8171D7929AC004564F9 /* JavaScriptCore.framework */,
 				DBF67C943C00BD9AB380FB55 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -131,6 +138,7 @@
 		360475531D73F30300D93E0A = {
 			isa = PBXGroup;
 			children = (
+				36A8D8151D792480004564F9 /* JSPatch.framework */,
 				3604755E1D73F30300D93E0A /* FFDribbble */,
 				360475781D73F30300D93E0A /* FFDribbbleTests */,
 				360475831D73F30300D93E0A /* FFDribbbleUITests */,
@@ -168,6 +176,7 @@
 			children = (
 				3604756B1D73F30300D93E0A /* Assets.xcassets */,
 				360475701D73F30300D93E0A /* Info.plist */,
+				36A8F7561D7407B4002215B9 /* main.js */,
 				360475601D73F30300D93E0A /* main.m */,
 			);
 			name = "Supporting Files";
@@ -205,7 +214,6 @@
 		36A8F7551D7407B4002215B9 /* JSPages */ = {
 			isa = PBXGroup;
 			children = (
-				36A8F7561D7407B4002215B9 /* FFMain.js */,
 				3656B5CA1D743F1600BCAECF /* FFLoadMoreView.js */,
 				36A8D7C01D77CFE0004564F9 /* FFLoadFinishView.js */,
 				368B8A571D740CD500B80926 /* FFListView.js */,
@@ -338,7 +346,7 @@
 			files = (
 				36A8F75A1D7407B4002215B9 /* FFListViewController.js in Resources */,
 				3604756C1D73F30300D93E0A /* Assets.xcassets in Resources */,
-				36A8F7591D7407B4002215B9 /* FFMain.js in Resources */,
+				36A8F7591D7407B4002215B9 /* main.js in Resources */,
 				368B8A581D740CD500B80926 /* FFListView.js in Resources */,
 				3656B5CB1D743F1600BCAECF /* FFLoadMoreView.js in Resources */,
 				36A8D7C31D77E40B004564F9 /* FFAuthorViewController.js in Resources */,
@@ -534,6 +542,17 @@
 			baseConfigurationReference = 224F93549932EDB91A248223 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/Bugly\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"$(SRCROOT)/JSPatch.framework\"",
+				);
 				INFOPLIST_FILE = FFDribbble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zly.FFDribbble;
@@ -546,6 +565,17 @@
 			baseConfigurationReference = 1789487882CEE1D32A96A1B0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/Bugly\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"$(SRCROOT)/JSPatch.framework\"",
+				);
 				INFOPLIST_FILE = FFDribbble/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zly.FFDribbble;
