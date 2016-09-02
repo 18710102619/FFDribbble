@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <Bugly/Bugly.h>
-#import "JPEngine.h"
-#import "Masonry.h"
+#import <JSPatch/JSPatch.h>
+#import <JSPatch/JPEngine.h>
 #import "FFNetwork.h"
 
 @interface AppDelegate ()<BuglyDelegate>
@@ -22,15 +22,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupBugly];
-    
-    [JPEngine startEngine];
-    NSString *sourcePath=[[NSBundle mainBundle]pathForResource:@"FFMain" ofType:@"js"];
-    [JPEngine evaluateScriptWithPath:sourcePath];
+    //[self setupJSPatch];
+    [self setupJPEngine];
     
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     [self initRootViewController];
-    
+
     return YES;
 }
 
@@ -38,6 +36,85 @@
 {
     //在FFMain.js中实现
 }
+
+#pragma mark - JPEngine
+
+- (void)setupJPEngine
+{
+    [JPEngine startEngine];
+    NSString *sourcePath=[[NSBundle mainBundle]pathForResource:@"main" ofType:@"js"];
+    [JPEngine evaluateScriptWithPath:sourcePath];
+}
+
+#pragma mark - JSPatch
+
+- (void)setupJSPatch
+{
+#if DEBUG
+    
+    // 用于发布前测试脚本，调用后，会在当前项目的 bundle 里寻找 main.js 文件执行。注意不能同时调用 +startWithAppKey: 方法，测试完成后需要删除。
+    [JSPatch testScriptInBundle];
+    // 开发预览
+    [JSPatch setupDevelopment];
+    
+#else
+    
+    // 传入在平台申请的 appKey，启动 JSPatch SDK。同时会自动执行已下载到本地的 patch 脚本。
+    [JSPatch startWithAppKey:@"b131749e6d38c12d"];
+    
+#endif
+   
+    // 设置 RSA Public Key
+    [JSPatch setupRSAPublicKey:@"-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDtpYOk3suexY6MXh01DnvKmLm4\ngAlMaSVt9sQEnzaealMLSbYlGCV0lK2bvwQzXVu7Ae5Q82Nx3+iVz5vcj8Md6tqa\nsdcvNs4HBqosFS/hbB0RMs81DqmC46LBpKQLjDpXnCFdfkpIb8UC19LGqZWBQxb0\nlzr9RUFjGkvvJwIv6wIDAQAB\n-----END PUBLIC KEY-----"];
+    
+    // 与 JSPatch 平台后台同步，询问是否有 patch 更新，如果有更新会自动下载并执行。
+    [JSPatch sync];
+    
+    
+    /*typedef NS_ENUM(NSInteger, JPCallbackType){
+        JPCallbackTypeUnknow        = 0,
+        JPCallbackTypeRunScript     = 1,    //执行脚本
+        JPCallbackTypeUpdate        = 2,    //脚本有更新
+        JPCallbackTypeUpdateDone    = 3,    //已拉取新脚本
+        JPCallbackTypeCondition     = 4,    //条件下发
+        JPCallbackTypeGray          = 5,    //灰度下发
+    };*/
+    [JSPatch setupCallback:^(JPCallbackType type, NSDictionary *data, NSError *error) {
+        switch (type) {
+            case JPCallbackTypeRunScript: {
+                NSLog(@"JPCallbackType 执行脚本: %@ %@", data, error);
+                
+                [self setupJPEngine];
+                
+                self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+                [self.window makeKeyAndVisible];
+                [self initRootViewController];
+                
+                break;
+            }
+            case JPCallbackTypeUpdate: {
+                NSLog(@"JPCallbackType 脚本有更新: %@ %@", data, error);
+                break;
+            }
+            case JPCallbackTypeUpdateDone: {
+                NSLog(@"JPCallbackType 已拉取新脚本: %@ %@", data, error);
+                break;
+            }
+            case JPCallbackTypeCondition: {
+                NSLog(@"JPCallbackType 条件下发: %@ %@", data, error);
+                break;
+            }
+            case JPCallbackTypeGray: {
+                NSLog(@"JPCallbackType 灰度下发: %@ %@", data, error);
+                break;
+            }
+            default:
+            break;
+        }
+    }];
+}
+
+#pragma mark - Bugly
 
 - (void)setupBugly
 {
