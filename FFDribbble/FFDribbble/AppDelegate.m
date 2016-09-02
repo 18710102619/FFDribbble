@@ -22,13 +22,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupBugly];
-    [self setupJSPatch];
+//    [self setupJSPatch];
     [self setupJPEngine];
     
     self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
     [self initRootViewController];
-    
+
     return YES;
 }
 
@@ -47,7 +47,15 @@
 - (void)setupJPEngine
 {
     [JPEngine startEngine];
+
     NSString *sourcePath=[[NSBundle mainBundle]pathForResource:@"main" ofType:@"js"];
+    
+//    NSString *path=[((NSArray *)NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES)) objectAtIndex:0];
+//    NSString *sourcePath=[NSString stringWithFormat:@"%@/JSPatch/1.0.0/main.js",path];
+    
+    NSString *content=[NSString stringWithContentsOfFile:sourcePath encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"content: %@",content);
+    
     [JPEngine evaluateScriptWithPath:sourcePath];
 }
 
@@ -69,6 +77,9 @@
     
 #endif
    
+    // 设置 RSA Public Key
+    [JSPatch setupRSAPublicKey:@"-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDtpYOk3suexY6MXh01DnvKmLm4\ngAlMaSVt9sQEnzaealMLSbYlGCV0lK2bvwQzXVu7Ae5Q82Nx3+iVz5vcj8Md6tqa\nsdcvNs4HBqosFS/hbB0RMs81DqmC46LBpKQLjDpXnCFdfkpIb8UC19LGqZWBQxb0\nlzr9RUFjGkvvJwIv6wIDAQAB\n-----END PUBLIC KEY-----"];
+    
     // 与 JSPatch 平台后台同步，询问是否有 patch 更新，如果有更新会自动下载并执行。
     [JSPatch sync];
     
@@ -85,6 +96,13 @@
         switch (type) {
             case JPCallbackTypeRunScript: {
                 NSLog(@"JPCallbackType 执行脚本: %@ %@", data, error);
+                
+                [self setupJPEngine];
+                
+                self.window=[[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+                [self.window makeKeyAndVisible];
+                [self initRootViewController];
+                
                 break;
             }
             case JPCallbackTypeUpdate: {
