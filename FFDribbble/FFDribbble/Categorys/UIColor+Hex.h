@@ -11,6 +11,6 @@
 @interface UIColor (Hex)
 
 + (UIColor *)colorWithHex:(long)hexColor;
-+ (UIColor *)colorWithHex:(long)hexColor alpha:(float)opacity;
++ (UIColor *)colorWithHex:(long)hexColor alpha:(float)alpha;
 
 @end
